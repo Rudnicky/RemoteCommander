@@ -1,0 +1,8 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="Application.TitleBar.Background">#282828</SolidColorBrush>
+    <SolidColorBrush x:Key="Application.TitleBar.BorderBrush">#222222</SolidColorBrush>
+    <SolidColorBrush x:Key="Application.Background">#333333</SolidColorBrush>
+    <SolidColorBrush x:Key="Application.Foreground">#f0f8ff</SolidColorBrush>
+    
+</ResourceDictionary>

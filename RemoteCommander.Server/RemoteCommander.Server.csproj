@@ -135,5 +135,11 @@
   <ItemGroup>
     <Folder Include="Views\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RemoteCommander.Resources\RemoteCommander.Resources.csproj">
+      <Project>{1742b9c8-c218-4d42-ad78-f20f26cfb6b8}</Project>
+      <Name>RemoteCommander.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
