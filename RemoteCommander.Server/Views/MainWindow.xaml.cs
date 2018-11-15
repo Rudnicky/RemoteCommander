@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace RemoteCommander.Server
+namespace RemoteCommander.Server.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
