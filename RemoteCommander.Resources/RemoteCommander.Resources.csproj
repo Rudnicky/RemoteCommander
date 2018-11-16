@@ -46,7 +46,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\RemoteCommander.Shared\RemoteCommander.Shared.csproj">
+      <Project>{697bfffc-3aa9-4586-b0fd-e0e34c2b084e}</Project>
+      <Name>RemoteCommander.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Styles\Default\Default.Brushes.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -64,6 +69,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\network.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

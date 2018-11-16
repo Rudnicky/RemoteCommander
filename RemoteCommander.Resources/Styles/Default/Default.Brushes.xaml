@@ -5,5 +5,9 @@
     <SolidColorBrush x:Key="Application.Background.Primary">#333333</SolidColorBrush>
     <SolidColorBrush x:Key="Application.Background.Secondary">#474747</SolidColorBrush>
     <SolidColorBrush x:Key="Application.Foreground">#f0f8ff</SolidColorBrush>
+
+    <SolidColorBrush x:Key="ImageButton.Foreground">#DCDCDC</SolidColorBrush>    
+    <SolidColorBrush x:Key="ImageButton.Foreground.MouseOver">#FBFBFB</SolidColorBrush>    
+    <SolidColorBrush x:Key="ImageButton.Foreground.Pressed">#B0B0B0</SolidColorBrush>    
     
 </ResourceDictionary>

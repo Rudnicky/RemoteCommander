@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Behaviors\MouseBehavior.cs" />
     <Compile Include="Controls\ImageButton.cs" />
+    <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Events\EventArgs.cs" />
     <Compile Include="Events\MouseEventArguments.cs" />
     <Compile Include="Interfaces\INetworkManager.cs" />
