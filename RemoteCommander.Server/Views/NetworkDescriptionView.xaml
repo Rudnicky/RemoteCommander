@@ -17,6 +17,20 @@
             <TextBlock Text="{Binding AvailableNetworks}" VerticalAlignment="Center" Foreground="{DynamicResource NetworkDescriptionLabel.Foreground}" />
         </StackPanel>
         <ListView Grid.Row="1" ItemsSource="{Binding NetworkDescriptionModels}" Background="Transparent" BorderBrush="Transparent">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border Background="Transparent"
+                                        BorderBrush="Transparent">
+                                    <ContentPresenter />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplateSelector>
                 <utils:NetworkDescriptionItemTemplateSelector />
             </ListView.ItemTemplateSelector>
@@ -54,7 +68,7 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Separator />
+                        <Separator Background="{DynamicResource NetworkDescriptionLabel.Foreground}" />
                         <controls:NetworkDescriptionLabel Grid.Row="1" LeftText="Description: " RightText="{Binding Description}" />
                         <controls:NetworkDescriptionLabel Grid.Row="2" LeftText="Id: " RightText="{Binding Id}" />
                         <controls:NetworkDescriptionLabel Grid.Row="3" LeftText="Name: " RightText="{Binding Name}" />

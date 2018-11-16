@@ -7,7 +7,7 @@ namespace RemoteCommander.Server.ViewModels
     public class NetworkDescriptionViewModel : BaseViewModel
     {
         #region Private Fields
-        private INetworkManager _networkManager;
+        private readonly INetworkManager _networkManager;
         #endregion
 
         #region Properties
