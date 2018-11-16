@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="RemoteCommander.Server.Views.AvailableHostsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:utils="clr-namespace:RemoteCommander.Shared.Utils;assembly=RemoteCommander.Shared"
+             xmlns:controls="clr-namespace:RemoteCommander.Shared.Controls;assembly=RemoteCommander.Shared"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Available Hosts: " VerticalAlignment="Center" Margin="12,0,5,0" Foreground="{DynamicResource DoubleLabel.Foreground}" />
+            <TextBlock Text="{Binding AvailableHosts}" VerticalAlignment="Center" Foreground="{DynamicResource DoubleLabel.Foreground}" />
+        </StackPanel>
+        <ListView Grid.Row="1" ItemsSource="{Binding AvailableHostsModels}" Background="Transparent" BorderBrush="Transparent">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border Background="Transparent"
+                                        BorderBrush="Transparent">
+                                    <ContentPresenter />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplateSelector>
+                <utils:AvailableHostsItemTemplateSelector />
+            </ListView.ItemTemplateSelector>
+            <ListView.Resources>
+                <DataTemplate x:Key="FirstItemStyle">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <controls:DoubleLabel LeftText="IP: " RightText="{Binding IP}" />
+                        <controls:DoubleLabel Grid.Row="1" LeftText="Hostname: " RightText="{Binding HostName}" />
+                        <controls:DoubleLabel Grid.Row="2" LeftText="Mac addres: " RightText="{Binding MacAddress}" />
+                    </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="DefaultItemStyle">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Separator Background="{DynamicResource DoubleLabel.Foreground}" />
+                        <controls:DoubleLabel Grid.Row="1" LeftText="IP: " RightText="{Binding IP}" />
+                        <controls:DoubleLabel Grid.Row="2" LeftText="Hostname: " RightText="{Binding HostName}" />
+                        <controls:DoubleLabel Grid.Row="3" LeftText="Mac addres: " RightText="{Binding MacAddress}" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.Resources>
+        </ListView>
+    </Grid>
+</UserControl>

@@ -45,9 +45,9 @@
         </Setter>
     </Style>
 
-    <Style x:Key="NetworkDescriptionLabelStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="{DynamicResource NetworkDescriptionLabel.Foreground}" />
-        <Setter Property="Background" Value="{DynamicResource NetworkDescriptionLabel.Background}" />
+    <Style x:Key="DoubleLabelStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource DoubleLabel.Foreground}" />
+        <Setter Property="Background" Value="{DynamicResource DoubleLabel.Background}" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontFamily" Value="Consolas" />
     </Style>

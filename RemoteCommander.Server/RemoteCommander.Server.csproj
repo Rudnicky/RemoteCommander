@@ -85,12 +85,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\AvailableHostsViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NetworkDescriptionViewModel.cs" />
+    <Compile Include="Views\AvailableHostsView.xaml.cs">
+      <DependentUpon>AvailableHostsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NetworkDescriptionView.xaml.cs">
       <DependentUpon>NetworkDescriptionView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\AvailableHostsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

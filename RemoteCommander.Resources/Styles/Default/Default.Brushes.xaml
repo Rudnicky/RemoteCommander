@@ -10,7 +10,7 @@
     <SolidColorBrush x:Key="ImageButton.Foreground.MouseOver">#FBFBFB</SolidColorBrush>    
     <SolidColorBrush x:Key="ImageButton.Foreground.Pressed">#B0B0B0</SolidColorBrush>
 
-    <SolidColorBrush x:Key="NetworkDescriptionLabel.Foreground">#00ffff</SolidColorBrush>
-    <SolidColorBrush x:Key="NetworkDescriptionLabel.Background">Transparent</SolidColorBrush>
+    <SolidColorBrush x:Key="DoubleLabel.Foreground">#00ffff</SolidColorBrush>
+    <SolidColorBrush x:Key="DoubleLabel.Background">Transparent</SolidColorBrush>
 
 </ResourceDictionary>

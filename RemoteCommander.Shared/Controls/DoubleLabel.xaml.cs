@@ -4,9 +4,9 @@ using System.Windows.Controls;
 namespace RemoteCommander.Shared.Controls
 {
     /// <summary>
-    /// Interaction logic for NetworkDescriptionLabel.xaml
+    /// Interaction logic for DoubleLabel.xaml
     /// </summary>
-    public partial class NetworkDescriptionLabel : UserControl
+    public partial class DoubleLabel : UserControl
     {
         #region Dependency Properties
         public string LeftText
@@ -15,7 +15,7 @@ namespace RemoteCommander.Shared.Controls
             set { SetValue(LeftTextProperty, value); }
         }
         public static readonly DependencyProperty LeftTextProperty =
-            DependencyProperty.Register("LeftText", typeof(string), typeof(NetworkDescriptionLabel), new PropertyMetadata(string.Empty));
+            DependencyProperty.Register("LeftText", typeof(string), typeof(DoubleLabel), new PropertyMetadata(string.Empty));
 
         public string RightText
         {
@@ -23,11 +23,11 @@ namespace RemoteCommander.Shared.Controls
             set { SetValue(RightTextProperty, value); }
         }
         public static readonly DependencyProperty RightTextProperty =
-            DependencyProperty.Register("RightText", typeof(string), typeof(NetworkDescriptionLabel), new PropertyMetadata(string.Empty));
+            DependencyProperty.Register("RightText", typeof(string), typeof(DoubleLabel), new PropertyMetadata(string.Empty));
         #endregion
 
         #region Constructor
-        public NetworkDescriptionLabel()
+        public DoubleLabel()
         {
             InitializeComponent();
         }

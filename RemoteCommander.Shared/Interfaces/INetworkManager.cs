@@ -6,5 +6,11 @@ namespace RemoteCommander.Shared.Interfaces
     public interface INetworkManager
     {
         ObservableCollection<NetworkDescriptionModel> GetCurrentData();
+
+        string GetNetworkGateway();
+
+        string GetHostName(string ipAddress);
+
+        string GetMacAddress(string ipAddress);
     }
 }

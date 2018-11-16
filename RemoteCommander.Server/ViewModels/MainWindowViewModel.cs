@@ -68,13 +68,25 @@ namespace RemoteCommander.Server.ViewModels
         {
             if (_networkManager != null)
             {
+                if (CurrentContent != null)
+                {
+                    var availableHostsViewModel = CurrentContent as AvailableHostsViewModel;
+                    if (availableHostsViewModel != null)
+                    {
+                        availableHostsViewModel.Dispose();
+                    }
+                }
+
                 CurrentContent = new NetworkDescriptionViewModel(_networkManager);
             }
         }
 
         private void AvailableHostsButton_Clicked(object e)
         {
-            // TODO:
+            if (_networkManager != null)
+            {
+                CurrentContent = new AvailableHostsViewModel(_networkManager);
+            }
         }
         #endregion
     }

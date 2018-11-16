@@ -20,6 +20,9 @@
         <DataTemplate DataType="{x:Type vm:NetworkDescriptionViewModel}">
             <v:NetworkDescriptionView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AvailableHostsViewModel}">
+            <v:AvailableHostsView />
+        </DataTemplate>
     </Window.Resources>
     <Border Margin="10" MouseDown="Border_MouseDown">
         <Border.Effect>
