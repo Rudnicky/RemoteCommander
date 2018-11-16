@@ -1,11 +1,63 @@
-﻿<Window x:Class="RemoteCommander.Server.Views.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+﻿<Window
+    x:Class="RemoteCommander.Server.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:RemoteCommander.Server.Behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    AllowsTransparency="True"
+    Background="Transparent"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Border Margin="10" MouseDown="Border_MouseDown">
+        <Border.Effect>
+            <DropShadowEffect
+                BlurRadius="10"
+                Direction="270"
+                ShadowDepth="3"
+                Color="Black" />
+        </Border.Effect>
+        <Grid Background="{DynamicResource Application.Background.Primary}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
+                <DockPanel.Effect>
+                    <DropShadowEffect
+                        BlurRadius="10"
+                        Direction="-90"
+                        ShadowDepth="2"
+                        Color="Black" />
+                </DockPanel.Effect>
+                <Menu Background="{DynamicResource Application.Background.Primary}" Foreground="{DynamicResource Application.Foreground}">
+                    <MenuItem Header="_File">
+                        <MenuItem Header="_Exit" />
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+            <Border
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Margin="0,1,0,0"
+                Background="{DynamicResource Application.Background.Secondary}">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="10"
+                        Direction="-90"
+                        ShadowDepth="1"
+                        Color="Black" />
+                </Border.Effect>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

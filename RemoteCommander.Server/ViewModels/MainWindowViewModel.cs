@@ -1,4 +1,7 @@
-﻿using RemoteCommander.Server.Interfaces;
+﻿using RemoteCommander.Server.Commands;
+using RemoteCommander.Server.Events;
+using RemoteCommander.Server.Interfaces;
+using System.Windows.Input;
 
 namespace RemoteCommander.Server.ViewModels
 {
@@ -6,6 +9,20 @@ namespace RemoteCommander.Server.ViewModels
     {
         #region Private Fields
         private INetworkManager _networkManager;
+        #endregion
+
+        #region Commands
+        //private ICommand _mainWindowMouseDownCommand;
+        //public ICommand MainWindowMouseDownCommand
+        //{
+        //    get
+        //    {
+        //        return _mainWindowMouseDownCommand ?? (_mainWindowMouseDownCommand = new RelayCommand<object>(e =>
+        //        {
+        //            MainWindow_MouseDown(e);
+        //        }));
+        //    }
+        //}
         #endregion
 
         #region Constructor

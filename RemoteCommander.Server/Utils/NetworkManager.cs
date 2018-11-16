@@ -7,6 +7,10 @@ namespace RemoteCommander.Server.Utils
     public sealed class NetworkManager : INetworkManager
     {
         #region Constructor
+        public NetworkManager()
+        {
+
+        }
         #endregion
 
         #region Public Methods

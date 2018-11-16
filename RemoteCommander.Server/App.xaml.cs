@@ -12,10 +12,18 @@ namespace RemoteCommander.Server
     /// </summary>
     public partial class App : Application
     {
+        #region Protected Methods
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
+            UnityContainerSetup();
+        }
+        #endregion
+
+        #region Private Methods
+        private void UnityContainerSetup()
+        {
             IUnityContainer container = new UnityContainer();
             container.RegisterType<INetworkManager, NetworkManager>();
 
@@ -23,5 +31,6 @@ namespace RemoteCommander.Server
             var window = new MainWindow { DataContext = mainWindowViewModel };
             window.Show();
         }
+        #endregion
     }
 }

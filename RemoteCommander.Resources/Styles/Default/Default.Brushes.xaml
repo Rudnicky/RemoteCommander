@@ -2,7 +2,8 @@
 
     <SolidColorBrush x:Key="Application.TitleBar.Background">#282828</SolidColorBrush>
     <SolidColorBrush x:Key="Application.TitleBar.BorderBrush">#222222</SolidColorBrush>
-    <SolidColorBrush x:Key="Application.Background">#333333</SolidColorBrush>
+    <SolidColorBrush x:Key="Application.Background.Primary">#333333</SolidColorBrush>
+    <SolidColorBrush x:Key="Application.Background.Secondary">#474747</SolidColorBrush>
     <SolidColorBrush x:Key="Application.Foreground">#f0f8ff</SolidColorBrush>
     
 </ResourceDictionary>

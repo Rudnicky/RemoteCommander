@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace RemoteCommander.Server.Views
 {
@@ -11,6 +12,16 @@ namespace RemoteCommander.Server.Views
         public MainWindow()
         {
             InitializeComponent();
+        }
+        #endregion
+
+        #region Private Methods
+        private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
         #endregion
     }
