@@ -1,6 +1,7 @@
 ﻿using RemoteCommander.Shared.Interfaces;
 using RemoteCommander.Shared.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
@@ -11,10 +12,13 @@ namespace RemoteCommander.Server.ViewModels
     public class AvailableHostsViewModel : BaseViewModel
     {
         #region Private Fields
+        private const int TIMEOUT = 2000;
+        private const int ATTEMPTS = 4;
         private readonly INetworkManager _networkManager;
         private string _networkGateway;
         private int _hostsAmount;
-        private Ping _ping;
+        private List<Ping> _listOfPings = new List<Ping>();
+        private bool _cancelRequested = false;
         #endregion
 
         #region Properties
@@ -54,21 +58,21 @@ namespace RemoteCommander.Server.ViewModels
         public AvailableHostsViewModel(INetworkManager networkManager)
         {
             this._networkManager = networkManager;
-            Setup();
+            SetupAsync();
         }
         #endregion
 
         #region Private Methods
-        private void Setup()
+        private async Task SetupAsync()
         {
             if (_networkManager != null)
             {
                 _networkGateway = _networkManager.GetNetworkGateway();
-                PingHosts();
+                await PingHostsAsync();
             }
         }
 
-        private void PingHosts()
+        private async Task PingHostsAsync()
         {
             if (_networkGateway != string.Empty)
             {
@@ -76,25 +80,31 @@ namespace RemoteCommander.Server.ViewModels
 
                 for (int i=2; i <= 255; i++)
                 {
+                    if (_cancelRequested)
+                        break;
+
                     string ping = splittedIps[0] + "." + splittedIps[1] + "." + splittedIps[2] + "." + i;
-                    Ping(ping, 4, 2000);
+                    await PingAsync(ping, ATTEMPTS, TIMEOUT);
                 }
             }
         }
 
-        private void Ping(string host, int attempts, int timeout)
+        private async Task PingAsync(string host, int attempts, int timeout)
         {
-            _hostsAmount = 0;
-
-            for (int i=0; i < attempts; i++)
+            for (int i = 0; i < attempts; i++)
             {
-                Task.Factory.StartNew(() =>
+                await Task.Factory.StartNew(() =>
                 {
                     try
                     {
-                        _ping = new Ping();
-                        _ping.PingCompleted += Ping_PingCompleted;
-                        _ping.SendAsync(host, timeout, host);
+                        if (!_cancelRequested)
+                        {
+                            var ping = new Ping();
+                            ping.PingCompleted += Ping_PingCompleted;
+                            ping.SendAsync(host, timeout, host);
+
+                            _listOfPings.Add(ping);
+                        }
                     }
                     catch (Exception)
                     {
@@ -126,7 +136,10 @@ namespace RemoteCommander.Server.ViewModels
 
                     Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        AvailableHostsModels.Add(availableHost);
+                        if (!_cancelRequested)
+                        {
+                            AvailableHostsModels.Add(availableHost);
+                        }
                     }));
                 }
             }
@@ -139,9 +152,11 @@ namespace RemoteCommander.Server.ViewModels
         #region Public Methods
         public void Dispose()
         {
-            if (_ping != null)
+            _cancelRequested = true;
+
+            foreach (var ping in _listOfPings)
             {
-                _ping.PingCompleted -= Ping_PingCompleted;
+                ping.PingCompleted -= Ping_PingCompleted;
             }
         }
         #endregion
