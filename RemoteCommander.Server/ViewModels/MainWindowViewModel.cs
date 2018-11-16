@@ -1,5 +1,6 @@
 ﻿using RemoteCommander.Shared.Interfaces;
 using RemoteCommander.Shared.Utils;
+using System;
 using System.Windows.Input;
 
 namespace RemoteCommander.Server.ViewModels
@@ -29,7 +30,7 @@ namespace RemoteCommander.Server.ViewModels
         }
         #endregion
 
-        #region Commands
+        #region Commands 
         private ICommand _networkInformationButtonClickedCommand;
         public ICommand NetworkInformationButtonClickedCommand
         {
@@ -38,6 +39,18 @@ namespace RemoteCommander.Server.ViewModels
                 return _networkInformationButtonClickedCommand ?? (_networkInformationButtonClickedCommand = new RelayCommand<object>(e =>
                 {
                     NetworkInformationButton_Clicked(e);
+                }));
+            }
+        }
+
+        private ICommand _availableHostsButtonClickedCommand;
+        public ICommand AvailableHostsButtonClickedCommand
+        {
+            get
+            {
+                return _availableHostsButtonClickedCommand ?? (_availableHostsButtonClickedCommand = new RelayCommand<object>(e =>
+                {
+                    AvailableHostsButton_Clicked(e);
                 }));
             }
         }
@@ -57,6 +70,11 @@ namespace RemoteCommander.Server.ViewModels
             {
                 CurrentContent = new NetworkDescriptionViewModel(_networkManager);
             }
+        }
+
+        private void AvailableHostsButton_Clicked(object e)
+        {
+            // TODO:
         }
         #endregion
     }

@@ -70,7 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\hosts.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\network.png" />
   </ItemGroup>

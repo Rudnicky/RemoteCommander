@@ -66,26 +66,26 @@
                         Color="Black" />
                 </Border.Effect>
             </Border>
-            <Grid Grid.Row="2" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+            <StackPanel Grid.Row="2" Grid.Column="0">
                 <controls:ImageButton
                     Height="25"
-                    Margin="4,0,0,0"
+                    Margin="4,10,0,0"
                     HorizontalAlignment="Left"
                     Command="{Binding NetworkInformationButtonClickedCommand}"
                     Image="{DynamicResource NetworkImage}"
-                    ImageHeight="15"
-                    ImageWidth="15"
+                    ImageHeight="20"
+                    ImageWidth="20"
                     Text="Network Information" />
-            </Grid>
+                <controls:ImageButton
+                    Height="25"
+                    Margin="4,5,0,0"
+                    HorizontalAlignment="Left"
+                    Command="{Binding AvailableHostsButtonClickedCommand}"
+                    Image="{DynamicResource HostsImage}"
+                    ImageHeight="20"
+                    ImageWidth="20"
+                    Text="Available Hosts in LAN" />
+            </StackPanel>
             <ContentControl
                 Grid.Row="2"
                 Grid.Column="1"
