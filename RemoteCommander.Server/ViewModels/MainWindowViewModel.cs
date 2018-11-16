@@ -1,4 +1,6 @@
 ﻿using RemoteCommander.Shared.Interfaces;
+using RemoteCommander.Shared.Utils;
+using System.Windows.Input;
 
 namespace RemoteCommander.Server.ViewModels
 {
@@ -8,35 +10,52 @@ namespace RemoteCommander.Server.ViewModels
         private INetworkManager _networkManager;
         #endregion
 
+        #region Properties
+        private object _currentContent;
+        public object CurrentContent
+        {
+            get
+            {
+                return _currentContent;
+            }
+            set
+            {
+                if (_currentContent != value)
+                {
+                    _currentContent = value;
+                    OnPropertyChanged(nameof(CurrentContent));
+                }
+            }
+        }
+        #endregion
+
         #region Commands
-        //private ICommand _mainWindowMouseDownCommand;
-        //public ICommand MainWindowMouseDownCommand
-        //{
-        //    get
-        //    {
-        //        return _mainWindowMouseDownCommand ?? (_mainWindowMouseDownCommand = new RelayCommand<object>(e =>
-        //        {
-        //            MainWindow_MouseDown(e);
-        //        }));
-        //    }
-        //}
+        private ICommand _networkInformationButtonClickedCommand;
+        public ICommand NetworkInformationButtonClickedCommand
+        {
+            get
+            {
+                return _networkInformationButtonClickedCommand ?? (_networkInformationButtonClickedCommand = new RelayCommand<object>(e =>
+                {
+                    NetworkInformationButton_Clicked(e);
+                }));
+            }
+        }
         #endregion
 
         #region Constructor
         public MainWindowViewModel(INetworkManager networkManager)
         {
             this._networkManager = networkManager;
-
-            RetrieveNetworkInterface(_networkManager);
         }
         #endregion
 
         #region Private Methods
-        private void RetrieveNetworkInterface(INetworkManager networkManager)
+        private void NetworkInformationButton_Clicked(object e)
         {
-            if (networkManager != null)
+            if (_networkManager != null)
             {
-                networkManager.GetCurrentNetworkInterface();
+                CurrentContent = new NetworkDescriptionViewModel(_networkManager);
             }
         }
         #endregion

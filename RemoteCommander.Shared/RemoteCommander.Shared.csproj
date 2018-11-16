@@ -46,14 +46,26 @@
   <ItemGroup>
     <Compile Include="Behaviors\MouseBehavior.cs" />
     <Compile Include="Controls\ImageButton.cs" />
+    <Compile Include="Controls\NetworkDescriptionLabel.xaml.cs">
+      <DependentUpon>NetworkDescriptionLabel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Events\EventArgs.cs" />
     <Compile Include="Events\MouseEventArguments.cs" />
     <Compile Include="Interfaces\INetworkManager.cs" />
+    <Compile Include="Models\NetworkDescriptionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\EventRaiser.cs" />
+    <Compile Include="Utils\NetworkDescriptionItemTemplateSelector.cs" />
     <Compile Include="Utils\NetworkManager.cs" />
     <Compile Include="Utils\RelayCommand.cs" />
+    <Compile Include="Utils\VisualTreeTraverseHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\NetworkDescriptionLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

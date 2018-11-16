@@ -6,6 +6,8 @@
     xmlns:controls="clr-namespace:RemoteCommander.Shared.Controls;assembly=RemoteCommander.Shared"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:RemoteCommander.Server.Views"
+    xmlns:vm="clr-namespace:RemoteCommander.Server.ViewModels"
     Title="MainWindow"
     Width="800"
     Height="450"
@@ -14,6 +16,11 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:NetworkDescriptionViewModel}">
+            <v:NetworkDescriptionView />
+        </DataTemplate>
+    </Window.Resources>
     <Border Margin="10" MouseDown="Border_MouseDown">
         <Border.Effect>
             <DropShadowEffect
@@ -73,11 +80,17 @@
                     Height="25"
                     Margin="4,0,0,0"
                     HorizontalAlignment="Left"
+                    Command="{Binding NetworkInformationButtonClickedCommand}"
                     Image="{DynamicResource NetworkImage}"
                     ImageHeight="15"
                     ImageWidth="15"
                     Text="Network Information" />
             </Grid>
+            <ContentControl
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="10"
+                Content="{Binding CurrentContent}" />
         </Grid>
     </Border>
 </Window>

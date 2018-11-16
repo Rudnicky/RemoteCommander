@@ -1,5 +1,7 @@
 ﻿using RemoteCommander.Shared.Interfaces;
-using System.Diagnostics;
+using RemoteCommander.Shared.Models;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.NetworkInformation;
 
 namespace RemoteCommander.Shared.Utils
@@ -14,34 +16,31 @@ namespace RemoteCommander.Shared.Utils
         #endregion
 
         #region Public Methods
-        public void GetCurrentNetworkInterface()
+        public ObservableCollection<NetworkDescriptionModel> GetCurrentData()
         {
-            NetworkInterface[] niArr = NetworkInterface.GetAllNetworkInterfaces();
+            var listOfInformations = new ObservableCollection<NetworkDescriptionModel>();
 
-            Debug.WriteLine("Retriving basic information of network.\n\n");
-
-            //Display all information of NetworkInterface using foreach loop.
-
-            foreach (NetworkInterface tempNetworkInterface in niArr)
-
+            var networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
+            if (networkInterfaces != null)
             {
+                foreach (var networkInterface in networkInterfaces)
+                {
+                    var networkDescriptionModel = new NetworkDescriptionModel
+                    {
+                        Description = networkInterface.Description,
+                        Id = networkInterface.Id,
+                        Name = networkInterface.Name,
+                        Type = networkInterface.NetworkInterfaceType.ToString(),
+                        Status = networkInterface.OperationalStatus.ToString(),
+                        Speed = networkInterface.Speed.ToString(),
+                        Multicast = networkInterface.SupportsMulticast.ToString()
+                    };
 
-                Debug.WriteLine("Network Discription  :  " + tempNetworkInterface.Description);
-
-                Debug.WriteLine("Network ID  :  " + tempNetworkInterface.Id);
-
-                Debug.WriteLine("Network Name  :  " + tempNetworkInterface.Name);
-
-                Debug.WriteLine("Network interface type  :  " + tempNetworkInterface.NetworkInterfaceType.ToString());
-
-                Debug.WriteLine("Network Operational Status   :   " + tempNetworkInterface.OperationalStatus.ToString());
-
-                Debug.WriteLine("Network Spped   :   " + tempNetworkInterface.Speed);
-
-                Debug.WriteLine("Support Multicast   :   " + tempNetworkInterface.SupportsMulticast);
-
+                    listOfInformations.Add(networkDescriptionModel);
+                }
             }
 
+            return listOfInformations;
         }
         #endregion
     }

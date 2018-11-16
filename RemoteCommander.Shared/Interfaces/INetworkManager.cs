@@ -1,7 +1,10 @@
-﻿namespace RemoteCommander.Shared.Interfaces
+﻿using RemoteCommander.Shared.Models;
+using System.Collections.ObjectModel;
+
+namespace RemoteCommander.Shared.Interfaces
 {
     public interface INetworkManager
     {
-        void GetCurrentNetworkInterface();
+        ObservableCollection<NetworkDescriptionModel> GetCurrentData();
     }
 }
