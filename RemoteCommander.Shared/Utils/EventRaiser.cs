@@ -1,6 +1,7 @@
-﻿using System;
+﻿using RemoteCommander.Shared.Events;
+using System;
 
-namespace RemoteCommander.Server.Commands
+namespace RemoteCommander.Shared.Utils
 {
     public static class EventRaiser
     {

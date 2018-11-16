@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace RemoteCommander.Server.Commands
+namespace RemoteCommander.Shared.Utils
 {
     public class RelayCommand<T> : ICommand
     {

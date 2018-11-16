@@ -1,4 +1,4 @@
-﻿namespace RemoteCommander.Server.Interfaces
+﻿namespace RemoteCommander.Shared.Interfaces
 {
     public interface INetworkManager
     {

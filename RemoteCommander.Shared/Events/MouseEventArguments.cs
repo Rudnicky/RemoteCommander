@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace RemoteCommander.Server.Events
+namespace RemoteCommander.Shared.Events
 {
     public class MouseEventArguments
     {

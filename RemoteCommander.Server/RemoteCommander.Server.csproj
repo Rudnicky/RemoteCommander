@@ -85,14 +85,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Behaviors\MouseBehavior.cs" />
-    <Compile Include="Commands\EventArgs.cs" />
-    <Compile Include="Commands\EventRaiser.cs" />
-    <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Controls\ImageButton.cs" />
-    <Compile Include="Events\MouseEventArguments.cs" />
-    <Compile Include="Interfaces\INetworkManager.cs" />
-    <Compile Include="Utils\NetworkManager.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Page Include="Views\MainWindow.xaml">
@@ -140,6 +132,10 @@
     <ProjectReference Include="..\RemoteCommander.Resources\RemoteCommander.Resources.csproj">
       <Project>{1742b9c8-c218-4d42-ad78-f20f26cfb6b8}</Project>
       <Name>RemoteCommander.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RemoteCommander.Shared\RemoteCommander.Shared.csproj">
+      <Project>{697bfffc-3aa9-4586-b0fd-e0e34c2b084e}</Project>
+      <Name>RemoteCommander.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

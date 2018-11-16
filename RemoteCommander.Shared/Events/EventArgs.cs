@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RemoteCommander.Server.Commands
+namespace RemoteCommander.Shared.Events
 {
     public class EventArgs<T> : EventArgs
     {

@@ -1,7 +1,4 @@
-﻿using RemoteCommander.Server.Commands;
-using RemoteCommander.Server.Events;
-using RemoteCommander.Server.Interfaces;
-using System.Windows.Input;
+﻿using RemoteCommander.Shared.Interfaces;
 
 namespace RemoteCommander.Server.ViewModels
 {

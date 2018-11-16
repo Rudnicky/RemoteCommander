@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace RemoteCommander.Server.Controls
+namespace RemoteCommander.Shared.Controls
 {
     public class ImageButton : Button
     {

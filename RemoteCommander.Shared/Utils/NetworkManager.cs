@@ -1,8 +1,8 @@
-﻿using RemoteCommander.Server.Interfaces;
+﻿using RemoteCommander.Shared.Interfaces;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 
-namespace RemoteCommander.Server.Utils
+namespace RemoteCommander.Shared.Utils
 {
     public sealed class NetworkManager : INetworkManager
     {

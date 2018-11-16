@@ -1,8 +1,8 @@
-﻿using RemoteCommander.Server.Events;
+﻿using RemoteCommander.Shared.Events;
 using System.Windows;
 using System.Windows.Input;
 
-namespace RemoteCommander.Server.Behaviors
+namespace RemoteCommander.Shared.Behaviors
 {
     public class MouseBehavior
     {

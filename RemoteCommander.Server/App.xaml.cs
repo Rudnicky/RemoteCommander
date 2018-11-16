@@ -1,7 +1,7 @@
-﻿using RemoteCommander.Server.Interfaces;
-using RemoteCommander.Server.Utils;
-using RemoteCommander.Server.ViewModels;
+﻿using RemoteCommander.Server.ViewModels;
 using RemoteCommander.Server.Views;
+using RemoteCommander.Shared.Interfaces;
+using RemoteCommander.Shared.Utils;
 using System.Windows;
 using Unity;
 
