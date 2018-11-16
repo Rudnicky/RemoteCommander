@@ -55,7 +55,7 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Separator Background="{DynamicResource DoubleLabel.Foreground}" />
+                        <Separator Background="{DynamicResource DoubleLabel.Foreground}" Margin="0,0,20,0" />
                         <controls:DoubleLabel Grid.Row="1" LeftText="IP: " RightText="{Binding IP}" />
                         <controls:DoubleLabel Grid.Row="2" LeftText="Hostname: " RightText="{Binding HostName}" />
                         <controls:DoubleLabel Grid.Row="3" LeftText="Mac addres: " RightText="{Binding MacAddress}" />

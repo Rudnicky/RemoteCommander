@@ -68,7 +68,7 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Separator Background="{DynamicResource DoubleLabel.Foreground}" />
+                        <Separator Background="{DynamicResource DoubleLabel.Foreground}" Margin="0,0,20,0" />
                         <controls:DoubleLabel Grid.Row="1" LeftText="Description: " RightText="{Binding Description}" />
                         <controls:DoubleLabel Grid.Row="2" LeftText="Id: " RightText="{Binding Id}" />
                         <controls:DoubleLabel Grid.Row="3" LeftText="Name: " RightText="{Binding Name}" />
